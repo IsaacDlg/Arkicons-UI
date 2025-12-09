@@ -1,0 +1,216 @@
+/* Floating Island Navigation (Massive Goat Style) */
+
+.card-nav-container {
+    position: fixed;
+    top: 20px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: auto;
+    /* Shrink to fit */
+    min-width: 320px;
+    max-width: 90%;
+    z-index: 1000;
+}
+
+.card-nav {
+    background: rgba(25, 25, 25, 0.9);
+    /* Dark semi-transparent background */
+    backdrop-filter: blur(15px);
+    -webkit-backdrop-filter: blur(15px);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    border-radius: 50px;
+    /* Full pill shape */
+    padding: 8px 12px;
+    box-shadow: 0 10px 40px rgba(0, 0, 0, 0.4);
+    transition: all 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+    overflow: hidden;
+    height: 60px;
+    /* Collapsed height */
+}
+
+/* Open State: Expands into a larger rounded card, but still centered and floating */
+.card-nav.open {
+    height: auto;
+    border-radius: 24px;
+    /* Less rounded corners when open */
+    width: 600px;
+    /* Wider when open */
+    max-width: 95vw;
+    background: rgba(20, 20, 20, 0.95);
+    padding-bottom: 20px;
+}
+
+.card-nav-top {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    height: 44px;
+    /* Adjusted inner height */
+    padding: 0 10px;
+}
+
+/* Logo */
+.logo-container {
+    height: 32px;
+    display: flex;
+    align-items: center;
+}
+
+.nav-logo {
+    height: 100%;
+    width: auto;
+    border-radius: 4px;
+    /* Slight round on logo if it has bg */
+}
+
+/* Hamburger - White styling for dark bg */
+.hamburger-menu {
+    width: 40px;
+    height: 40px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+    gap: 5px;
+}
+
+.hamburger-line {
+    width: 24px;
+    height: 2px;
+    background-color: #fff;
+    transition: all 0.3s ease;
+}
+
+.hamburger-menu.open .hamburger-line:first-child {
+    transform: translateY(7px) rotate(45deg);
+}
+
+.hamburger-menu.open .hamburger-line:nth-child(2) {
+    opacity: 0;
+}
+
+/* Since there are only 2 lines in JSX, last-child is the 2nd one. 
+   WAIT, the JSX has 2 lines. 
+   So first-child and last-child logic:
+*/
+.hamburger-menu .hamburger-line:nth-child(2) {
+    /* If there are only 2 lines, we need to handle rotation differently */
+}
+
+/* Let's assume standard X with 2 lines */
+.hamburger-menu.open .hamburger-line:first-child {
+    transform: translateY(3.5px) rotate(45deg);
+}
+
+.hamburger-menu.open .hamburger-line:last-child {
+    transform: translateY(-3.5px) rotate(-45deg);
+}
+
+
+/* CTA Button - Pill style */
+.card-nav-cta-button {
+    background: #fff;
+    color: #000;
+    padding: 8px 20px;
+    border-radius: 30px;
+    text-decoration: none;
+    font-weight: 700;
+    font-size: 0.85rem;
+    text-transform: uppercase;
+    transition: transform 0.2s;
+    margin-left: 10px;
+}
+
+.card-nav-cta-button:hover {
+    transform: scale(1.05);
+    background: #E07A5F;
+    color: #fff;
+}
+
+/* Expandable Content */
+.card-nav-content {
+    opacity: 0;
+    visibility: hidden;
+    margin-top: 0;
+    padding: 0 20px;
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    /* 3 Columns */
+    gap: 15px;
+    transform: translateY(20px);
+    transition: all 0.4s ease 0.1s;
+}
+
+.card-nav.open .card-nav-content {
+    opacity: 1;
+    visibility: visible;
+    transform: translateY(0);
+    margin-top: 20px;
+}
+
+/* Nav Cards within the menu */
+.nav-card {
+    background: rgba(255, 255, 255, 0.05);
+    padding: 15px;
+    border-radius: 12px;
+    text-align: left;
+    transition: background 0.3s;
+}
+
+.nav-card:hover {
+    background: rgba(255, 255, 255, 0.1);
+}
+
+.nav-card-label {
+    display: block;
+    font-size: 0.75rem;
+    text-transform: uppercase;
+    color: rgba(255, 255, 255, 0.4);
+    margin-bottom: 10px;
+    font-weight: 700;
+    letter-spacing: 1px;
+}
+
+.nav-card-links {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+}
+
+.nav-card-link {
+    color: #fff;
+    text-decoration: none;
+    font-size: 1rem;
+    font-weight: 500;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.nav-card-link:hover {
+    color: #E07A5F;
+}
+
+.nav-card-link i {
+    opacity: 0.5;
+    font-size: 0.8em;
+}
+
+/* Mobile Adjustments */
+@media (max-width: 650px) {
+    .card-nav.open {
+        width: 100%;
+        border-radius: 20px;
+    }
+
+    .card-nav-content {
+        grid-template-columns: 1fr;
+        /* Stack vertically */
+    }
+
+    .card-nav-cta-button {
+        display: none;
+        /* Hide CTA button on mobile if needed, or keep small */
+    }
+}
