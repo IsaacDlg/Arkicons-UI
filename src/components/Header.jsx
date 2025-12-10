@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { Link, useLocation } from 'react-router-dom';
 import './Header.css';
+import MegaMenu from './MegaMenu';
 
 const Header = () => {
     const [isMenuOpen, setIsMenuOpen] = useState(false);
@@ -61,9 +62,14 @@ const Header = () => {
                     {/* Nav Links */}
                     <nav className={`nav-links-container ${isMenuOpen ? 'active' : ''}`}>
                         <ul className="nav-list">
-                            <li><Link to="/" className={location.pathname === '/' ? 'active' : ''}>Inicio</Link></li>
+
                             <li><Link to="/about" className={location.pathname === '/about' ? 'active' : ''}>Nosotros</Link></li>
-                            <li><Link to="/products" className={location.pathname === '/products' ? 'active' : ''}>Productos</Link></li>
+                            <li className="nav-item-products" style={{ position: 'relative' }}>
+                                <Link to="/products" className={location.pathname === '/products' ? 'active' : ''}>
+                                    Productos <i className="fas fa-chevron-down" style={{ fontSize: '0.7em', marginLeft: '5px' }}></i>
+                                </Link>
+                                <MegaMenu />
+                            </li>
                             <li><Link to="/contact" className={location.pathname === '/contact' ? 'active' : ''}>Contacto</Link></li>
                         </ul>
                         <div className="nav-cta">

@@ -170,7 +170,63 @@ const Home = () => {
                         </button>
                     </div>
 
-                    <ScrollList items={currentItems} title={currentTitle} />
+                    {/* NEW TRENDS GRID */}
+                    <div className="trends-grid" style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(250px, 1fr))', gap: '20px', padding: '20px 0' }}>
+                        {collectionType === 'classic' ? (
+                            /* Classic Items with Images */
+                            <>
+                                <Link to="/products" className="trend-card animate-on-scroll">
+                                    <img src="/images/tejas/tejas-1.JPG" alt="Teja Terracota" style={{ width: '100%', height: '200px', objectFit: 'cover', borderRadius: '10px' }} />
+                                    <div className="trend-info" style={{ marginTop: '15px' }}>
+                                        <h4>Teja Española PVC</h4>
+                                        <p style={{ fontSize: '0.9rem', color: '#666' }}>El clásico terracota que nunca pasa de moda. Resistencia y tradición.</p>
+                                    </div>
+                                </Link>
+                                <Link to="/products" className="trend-card animate-on-scroll delay-1">
+                                    <img src="/images/tejas/tejas-2.JPG" alt="Teja Naranja" style={{ width: '100%', height: '200px', objectFit: 'cover', borderRadius: '10px' }} />
+                                    <div className="trend-info" style={{ marginTop: '15px' }}>
+                                        <h4>Teja Naranja Vibrante</h4>
+                                        <p style={{ fontSize: '0.9rem', color: '#666' }}>Luminosidad para cubiertas campestres moderna.</p>
+                                    </div>
+                                </Link>
+                                <Link to="/products" className="trend-card animate-on-scroll delay-2">
+                                    <img src="/images/tejas/tejas-3.JPG" alt="Teja Gris" style={{ width: '100%', height: '200px', objectFit: 'cover', borderRadius: '10px' }} />
+                                    <div className="trend-info" style={{ marginTop: '15px' }}>
+                                        <h4>Teja Gris Pizarra</h4>
+                                        <p style={{ fontSize: '0.9rem', color: '#666' }}>Elegancia sobria para arquitectura contemporánea.</p>
+                                    </div>
+                                </Link>
+                            </>
+                        ) : (
+                            /* Trending Items with Images */
+                            <>
+                                <Link to="/products" className="trend-card animate-on-scroll">
+                                    <img src="/images/wpc/wpc-10.PNG" alt="WPC Senderos" style={{ width: '100%', height: '200px', objectFit: 'cover', borderRadius: '10px' }} />
+                                    <div className="trend-info" style={{ marginTop: '15px' }}>
+                                        <span className="badge-trend" style={{ background: 'var(--primary)', color: 'white', padding: '5px 10px', borderRadius: '15px', fontSize: '0.7rem', textTransform: 'uppercase', marginBottom: '10px', display: 'inline-block' }}>Tendencia 2026</span>
+                                        <h4>Panel Ranurado WPC</h4>
+                                        <p style={{ fontSize: '0.9rem', color: '#666' }}>Senderos Modernos: La textura favorita de los diseñadores.</p>
+                                    </div>
+                                </Link>
+                                <Link to="/products" className="trend-card animate-on-scroll delay-1">
+                                    <img src="/images/laminas/laminas-3.JPG" alt="Mármol PVC" style={{ width: '100%', height: '200px', objectFit: 'cover', borderRadius: '10px' }} />
+                                    <div className="trend-info" style={{ marginTop: '15px' }}>
+                                        <span className="badge-trend" style={{ background: 'var(--primary)', color: 'white', padding: '5px 10px', borderRadius: '15px', fontSize: '0.7rem', textTransform: 'uppercase', marginBottom: '10px', display: 'inline-block' }}>Top Ventas</span>
+                                        <h4>Mármol PVC UV</h4>
+                                        <p style={{ fontSize: '0.9rem', color: '#666' }}>El lujo de la piedra natural con la facilidad del PVC.</p>
+                                    </div>
+                                </Link>
+                                <Link to="/products" className="trend-card animate-on-scroll delay-2">
+                                    <img src="/images/tumbado/tumbado-1.JPG" alt="Tumbado PVC" style={{ width: '100%', height: '200px', objectFit: 'cover', borderRadius: '10px' }} />
+                                    <div className="trend-info" style={{ marginTop: '15px' }}>
+                                        <span className="badge-trend" style={{ background: 'var(--accent)', color: 'white', padding: '5px 10px', borderRadius: '15px', fontSize: '0.7rem', textTransform: 'uppercase', marginBottom: '10px', display: 'inline-block' }}>Nuevo</span>
+                                        <h4>Tumbado Minimalista</h4>
+                                        <p style={{ fontSize: '0.9rem', color: '#666' }}>Acabados limpios y blancos para maximizar la luz.</p>
+                                    </div>
+                                </Link>
+                            </>
+                        )}
+                    </div>
                     <div className="text-center" style={{ marginTop: '40px' }}>
                         <Link to="/products" className="btn-primary">Ver Todos los Productos</Link>
                     </div>

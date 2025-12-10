@@ -1,0 +1,122 @@
+/* MegaMenu.css */
+.mega-menu-container {
+    position: absolute;
+    top: 100%;
+    left: 50%;
+    transform: translateX(-50%) translateY(10px);
+    width: 800px;
+    background: white;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.15);
+    border-radius: 8px;
+    display: flex;
+    overflow: hidden;
+    opacity: 0;
+    visibility: hidden;
+    transition: all 0.3s cubic-bezier(0.165, 0.84, 0.44, 1);
+    z-index: 1000;
+    border-top: 4px solid var(--primary);
+}
+
+/* Show when parent is hovered */
+.nav-item-products:hover .mega-menu-container {
+    opacity: 1;
+    visibility: visible;
+    transform: translateX(-50%) translateY(0);
+}
+
+/* Sidebar (Left Column) */
+.mega-menu-sidebar {
+    width: 250px;
+    background: #f8f9fa;
+    padding: 20px 0;
+    border-right: 1px solid #eee;
+}
+
+.menu-category {
+    padding: 15px 25px;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    transition: all 0.2s ease;
+    color: var(--text-dark);
+    font-weight: 500;
+    position: relative;
+}
+
+.menu-category:hover,
+.menu-category.active {
+    background: white;
+    color: var(--primary);
+    font-weight: 700;
+}
+
+.menu-category.active::before {
+    content: '';
+    position: absolute;
+    left: 0;
+    top: 0;
+    bottom: 0;
+    width: 4px;
+    background: var(--primary);
+}
+
+.category-icon {
+    font-size: 1.2rem;
+    width: 24px;
+    text-align: center;
+}
+
+/* Content Panel (Right Column) */
+.mega-menu-content {
+    flex: 1;
+    padding: 30px;
+    background: white;
+}
+
+.subcategory-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 20px;
+}
+
+.subcategory-item {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+    padding: 15px;
+    border-radius: 8px;
+    border: 1px solid #eee;
+    transition: all 0.3s ease;
+}
+
+.subcategory-item:hover {
+    border-color: var(--primary);
+    transform: translateY(-3px);
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+}
+
+.subcategory-img {
+    width: 60px;
+    height: 60px;
+    border-radius: 6px;
+    object-fit: cover;
+}
+
+.subcategory-info h4 {
+    font-size: 1rem;
+    margin-bottom: 4px;
+    color: var(--text-dark);
+}
+
+.subcategory-info span {
+    font-size: 0.8rem;
+    color: #888;
+}
+
+/* Mobile Disable */
+@media (max-width: 968px) {
+    .mega-menu-container {
+        display: none;
+    }
+}

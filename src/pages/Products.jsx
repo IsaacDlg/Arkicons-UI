@@ -1,3 +1,4 @@
+import HeroCarousel from '../components/HeroCarousel';
 import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
 
@@ -91,58 +92,84 @@ const Products = () => {
 
     return (
         <>
-            {/* NEW HERO SLIDER HEADER (Floating Cards) */}
-            <header className="product-hero-section">
-                <div className="product-hero-bg">
-                    <img src="/images/laminas/laminas-3.JPG" alt="Background" />
-                    <div className="hero-gradient-overlay"></div>
-                </div>
-
-                <div className="container product-hero-content">
-                    {/* Left Side: Floating Product Cards */}
-                    <div className="hero-cards-wrapper">
-                        <div className="hero-product-card animate-on-scroll slide-in-left">
-                            <div className="hero-card-img">
-                                <img src="/images/tejas/tejas-1.JPG" alt="Teja Española" />
-                            </div>
-                            <div className="hero-card-info">
-                                <span>Teja Española PVC</span>
-                                <h4>Clásica y Resistente</h4>
-                                <button className="btn-mini">Ver más</button>
-                            </div>
-                        </div>
-
-                        <div className="hero-product-card animate-on-scroll slide-in-left delay-1">
-                            <div className="hero-card-img">
-                                <img src="/images/wpc/wpc-1.JPG" alt="Paneles WPC" />
-                            </div>
-                            <div className="hero-card-info">
-                                <span>Paneles WPC</span>
-                                <h4>Elegancia Interior</h4>
-                                <button className="btn-mini">Ver más</button>
-                            </div>
-                        </div>
-
-                        <div className="hero-product-card animate-on-scroll slide-in-left delay-2">
-                            <div className="hero-card-img">
-                                <img src="/images/tumbado/tumbado-1.JPG" alt="Tumbado PVC" />
-                            </div>
-                            <div className="hero-card-info">
-                                <span>Tumbado PVC</span>
-                                <h4>Acabados Limpios</h4>
-                                <button className="btn-mini">Ver más</button>
-                            </div>
-                        </div>
-                    </div>
-
-                    {/* Right Side: Main Text */}
-                    <div className="hero-text-wrapper animate-on-scroll">
-                        <h1>TRANSFORMA<br />TU HOGAR</h1>
-                        <p>Descubre nuestra línea exclusiva de acabados arquitectónicos.</p>
-                        <button className="btn-primary">Realizar Pedido</button>
-                    </div>
-                </div>
-            </header>
+            {/* COMBINED HERO CAROUSEL */}
+            <div style={{ marginBottom: '60px' }}>
+                <HeroCarousel
+                    height="600px"
+                    slides={[
+                        {
+                            type: 'custom',
+                            content: (
+                                <header className="product-hero-section" style={{ height: '100%', background: 'none' }}>
+                                    <div className="product-hero-bg">
+                                        <img src="/images/laminas/laminas-3.JPG" alt="Background" />
+                                        <div className="hero-gradient-overlay"></div>
+                                    </div>
+                                    <div className="container product-hero-content">
+                                        {/* Left Side: Floating Product Cards */}
+                                        <div className="hero-cards-wrapper">
+                                            <div className="hero-product-card">
+                                                <div className="hero-card-img">
+                                                    <img src="/images/tejas/tejas-1.JPG" alt="Teja Española" />
+                                                </div>
+                                                <div className="hero-card-info">
+                                                    <span>Teja Española PVC</span>
+                                                    <h4>Clásica y Resistente</h4>
+                                                    <button className="btn-mini">Ver más</button>
+                                                </div>
+                                            </div>
+                                            <div className="hero-product-card" style={{ animationDelay: '0.1s' }}>
+                                                <div className="hero-card-img">
+                                                    <img src="/images/wpc/wpc-1.JPG" alt="Paneles WPC" />
+                                                </div>
+                                                <div className="hero-card-info">
+                                                    <span>Paneles WPC</span>
+                                                    <h4>Elegancia Interior</h4>
+                                                    <button className="btn-mini">Ver más</button>
+                                                </div>
+                                            </div>
+                                            <div className="hero-product-card" style={{ animationDelay: '0.2s' }}>
+                                                <div className="hero-card-img">
+                                                    <img src="/images/tumbado/tumbado-1.JPG" alt="Tumbado PVC" />
+                                                </div>
+                                                <div className="hero-card-info">
+                                                    <span>Tumbado PVC</span>
+                                                    <h4>Acabados Limpios</h4>
+                                                    <button className="btn-mini">Ver más</button>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        {/* Right Side: Main Text */}
+                                        <div className="hero-text-wrapper">
+                                            <h1>TRANSFORMA<br />TU HOGAR</h1>
+                                            <p>Descubre nuestra línea exclusiva de acabados arquitectónicos.</p>
+                                            <button className="btn-primary">Realizar Pedido</button>
+                                        </div>
+                                    </div>
+                                </header>
+                            )
+                        },
+                        {
+                            src: "/images/wpc/wpc-1.JPG",
+                            title: "¡PRODUCTOS EN DESCUENTOS!",
+                            subtitle: "Aprovecha nuestras ofertas especiales de temporada. Calidad premium a precios increíbles.",
+                            cta: "Cotiza Ya"
+                        },
+                        {
+                            src: "/images/tejas/tejas-2.JPG",
+                            title: "OFERTAS EN TEJAS",
+                            subtitle: "Renueva tu cubierta con nuestra tecnología duradera y elegante.",
+                            cta: "Ver Ofertas"
+                        },
+                        {
+                            src: "/images/laminas/laminas-3.JPG",
+                            title: "REVESTIMIENTOS UV",
+                            subtitle: "Acabados de mármol a una fracción del costo. Instalación rápida.",
+                            cta: "Consultar Precio"
+                        }
+                    ]}
+                />
+            </div>
 
             <section className="section products-section">
                 <div className="container">

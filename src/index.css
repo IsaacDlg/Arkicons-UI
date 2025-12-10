@@ -1137,17 +1137,14 @@ ul {
     transform: translateX(0);
 }
 
-/* === NEW PRODUCT HERO (FLOATING CARDS) === */
+/* === HERO SLIDER with FLOATING CARDS === */
 .product-hero-section {
     position: relative;
-    height: 70vh;
-    /* Taller for impact */
-    min-height: 500px;
+    /* Height is now controlled by parent Carousel */
+    height: 100%;
     display: flex;
     align-items: center;
     overflow: hidden;
-    margin-bottom: 60px;
-    border-bottom: 5px solid var(--primary);
 }
 
 .product-hero-bg {
@@ -1156,7 +1153,7 @@ ul {
     left: 0;
     width: 100%;
     height: 100%;
-    z-index: 0;
+    z-index: 1;
 }
 
 .product-hero-bg img {
