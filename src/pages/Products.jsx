@@ -139,6 +139,12 @@ const Products = () => {
                                         </div>
                                         <div className="gallery-actions">
                                             <button
+                                                className="btn-details"
+                                                onClick={(e) => { e.stopPropagation(); setLightboxImage(img); }}
+                                            >
+                                                <i className="fas fa-eye"></i> Ver Detalles
+                                            </button>
+                                            <button
                                                 className="btn-cotizar"
                                                 onClick={(e) => { e.stopPropagation(); handleQuote(img); }}
                                             >

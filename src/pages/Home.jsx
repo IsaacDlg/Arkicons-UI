@@ -2,6 +2,7 @@ import React, { useEffect } from 'react';
 import { Link } from 'react-router-dom';
 import ScrollList from '../components/ScrollList';
 import StatCounter from '../components/StatCounter';
+import HeroCarousel from '../components/HeroCarousel';
 
 const Home = () => {
     useEffect(() => {
@@ -26,19 +27,19 @@ const Home = () => {
     const [collectionType, setCollectionType] = React.useState('trending');
 
     const classicItems = [
-        { text: "Teja Española Clásica - Arcilla Natural", selected: true },
-        { text: "Cumbreras y Remates - Terracota", selected: false },
-        { text: "Teja Mixta - Estilo Mediterráneo", selected: false },
-        { text: "Impermeabilizante Premium", selected: false },
-        { text: "Ladrillo Visto Artesanal", selected: false },
+        { text: "Teja Española PVC - Terracota", selected: true },
+        { text: "Teja Española PVC - Naranja", selected: false },
+        { text: "Teja Española PVC - Gris", selected: false },
+        { text: "Cumbreras y Accesorios PVC", selected: false },
+        { text: "Aislamiento Térmico y Sonoro", selected: false },
     ];
 
     const trendingItems = [
-        { text: "Panel WPC - Acabado Madera Tecnológica", selected: true },
-        { text: "Teja Plana - Negro Pizarra (Minimalista)", selected: false },
-        { text: "Revestimiento 3D para Interiores", selected: false },
-        { text: "Fachadas Ventiladas - Estilo Industrial", selected: false },
-        { text: "Cubiertas Solares Integradas", selected: false },
+        { text: "Panel Ranurado WPC - Senderos Modernos", selected: true },
+        { text: "Mármol PVC - Revestimiento Elegante", selected: false },
+        { text: "Lámina Adhesiva Estilo Mármol", selected: false },
+        { text: "Tumbado PVC - Acabado Limpio", selected: false },
+        { text: "Teja Translúcida (Policarbonato)", selected: false },
     ];
 
     const currentItems = collectionType === 'classic' ? classicItems : trendingItems;
@@ -52,21 +53,10 @@ const Home = () => {
 
     return (
         <>
-            <header id="inicio" className="hero">
-                <video autoPlay loop muted playsInline className="hero-video" poster="/images/hero-poster.jpg">
-                    <source src="/images/hero-video.mp4" type="video/mp4" />
-                    Your browser does not support the video tag.
-                </video>
-                <div className="hero-overlay"></div>
-                <div className="container hero-content">
-                    <h1 className="fade-in">Innovación en Construcción,<br />Tradición en Calidad</h1>
-                    <p className="fade-in delay-1">Transformamos espacios con materiales importados de primera línea. Especialistas en cubiertas y acabados arquitectónicos.</p>
-                    <div className="hero-btns fade-in delay-2">
-                        <Link to="/products" className="btn-primary">Explorar Catálogo</Link>
-                        <Link to="/contact" className="btn-secondary">Cotizar Proyecto</Link>
-                    </div>
-                </div>
-            </header>
+            {/* Hero Carousel */}
+            <div id="inicio">
+                <HeroCarousel />
+            </div>
 
 
 

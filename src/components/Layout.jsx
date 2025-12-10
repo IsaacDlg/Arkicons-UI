@@ -1,11 +1,11 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
-import CardNav from './CardNav';
+import Header from './Header';
 
 const Layout = ({ children }) => {
     return (
         <>
-            <CardNav />
+            <Header />
 
             <main>
                 {children}
@@ -28,7 +28,7 @@ const Layout = ({ children }) => {
                 </div>
             </footer>
 
-            <a href="https://wa.me/593999999999" className="whatsapp-float" target="_blank" rel="noopener noreferrer" aria-label="Chat on WhatsApp">
+            <a href="https://wa.me/593987676761" className="whatsapp-float" target="_blank" rel="noopener noreferrer" aria-label="Chat on WhatsApp">
                 <i className="fab fa-whatsapp"></i>
             </a>
         </>

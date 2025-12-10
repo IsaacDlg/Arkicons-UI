@@ -2,12 +2,21 @@
 @import url('https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css');
 
 :root {
-    --primary: #E07A5F;
-    --primary-dark: #C45D42;
-    --accent: #2F323A;
-    --bg-light: #F8F9FA;
-    --text-dark: #1A1A1A;
+    /* Reference Palette: https://revestimientosdecohogar.cl/ */
+    --primary: #FCA311;
+    /* Vibrant Orange */
+    --primary-dark: #E85D04;
+    /* Darker Orange for hover */
+    --accent: #14213D;
+    /* Dark Blue/Grey (Nav/Footer) */
+    --bg-light: #FFFFFF;
+    /* Pure White Background */
+    --bg-grey: #F8F9FA;
+    /* Light Grey for sections */
+    --text-dark: #333333;
+    /* Dark Grey Text */
     --text-light: #6C757D;
+    /* Light Grey Text */
     --white: #FFFFFF;
     --black: #000000;
 
@@ -15,15 +24,13 @@
     --font-body: 'Roboto', sans-serif;
 
     --transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
-    --shadow: 0 10px 40px rgba(0, 0, 0, 0.08);
-    /* Soft diffuse shadow */
-    --shadow-hover: 0 15px 45px rgba(0, 0, 0, 0.12);
-    --text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.4);
-    --glass: rgba(255, 255, 255, 0.85);
-    --glass-border: 1px solid rgba(255, 255, 255, 0.6);
+    --shadow: 0 4px 6px rgba(0, 0, 0, 0.05);
+    /* Softer shadow */
+    --shadow-hover: 0 10px 15px rgba(0, 0, 0, 0.1);
+    --text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.3);
 
-    --radius: 16px;
-    /* UNIFIED BORDER RADIUS */
+    --radius: 4px;
+    /* Squarer radius for cleaner look */
 }
 
 * {
@@ -98,16 +105,16 @@ ul {
 .btn-primary {
     background-color: var(--primary);
     color: var(--white);
-    padding: 14px 35px;
+    padding: 12px 30px;
     border-radius: var(--radius);
-    /* Unified */
     font-weight: 700;
     text-transform: uppercase;
     letter-spacing: 1px;
     transition: var(--transition);
-    border: 2px solid var(--primary);
+    border: none;
     display: inline-block;
     cursor: pointer;
+    box-shadow: 0 4px 10px rgba(252, 163, 17, 0.3);
 }
 
 .btn-primary:hover {
@@ -120,9 +127,8 @@ ul {
 .btn-secondary {
     background-color: transparent;
     color: var(--white);
-    padding: 14px 35px;
+    padding: 12px 30px;
     border-radius: var(--radius);
-    /* Unified */
     font-weight: 700;
     text-transform: uppercase;
     letter-spacing: 1px;
@@ -159,20 +165,9 @@ ul {
 }
 
 /* Navbar - Glassmorphism */
+/* Navbar - Replaced by Header Component */
 .navbar {
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 100%;
-    background-color: var(--glass);
-    /* Glass variable */
-    backdrop-filter: blur(12px);
-    /* Stronger blur */
-    border-bottom: var(--glass-border);
-    z-index: 1000;
-    padding: 20px 0;
-    box-shadow: var(--shadow);
-    transition: var(--transition);
+    display: none;
 }
 
 .nav-container {
@@ -353,7 +348,7 @@ ul {
 
 /* Features / About */
 .about-section {
-    background-color: var(--white);
+    background-color: var(--bg-grey);
 }
 
 .features-grid {
@@ -899,11 +894,13 @@ ul {
 
 .gallery-actions {
     padding: 15px;
-    text-align: center;
+    display: flex;
+    gap: 10px;
+    justify-content: space-between;
 }
 
 .btn-cotizar {
-    width: 100%;
+    flex: 1;
     padding: 10px;
     background-color: #25d366;
     /* WhatsApp Green */
@@ -922,6 +919,27 @@ ul {
 
 .btn-cotizar:hover {
     background-color: #1ebe57;
+    transform: translateY(-2px);
+}
+
+.btn-details {
+    flex: 1;
+    padding: 10px;
+    background-color: var(--accent);
+    color: white;
+    border: none;
+    border-radius: 8px;
+    font-weight: 600;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+    transition: var(--transition);
+}
+
+.btn-details:hover {
+    background-color: #000;
     transform: translateY(-2px);
 }
 
