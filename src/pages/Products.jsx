@@ -60,6 +60,30 @@ const Products = () => {
         }
     ];
 
+    // Scroll Animation Observer (Duplicate of Home.jsx logic for now)
+    React.useEffect(() => {
+        const observerOptions = {
+            threshold: 0.1
+        };
+
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('fade-in');
+                    observer.unobserve(entry.target);
+                }
+            });
+        }, observerOptions);
+
+        setTimeout(() => {
+            document.querySelectorAll('.animate-on-scroll').forEach(el => {
+                observer.observe(el);
+            });
+        }, 100); // Small delay to ensure DOM is ready
+
+        return () => observer.disconnect();
+    }, [selectedCategory]); // Re-run when view changes
+
     const handleQuote = (imageSrc) => {
         const message = `Hola, estoy interesado en cotizar el producto que vi en su galería: ${window.location.origin}${imageSrc}`;
         window.open(`https://wa.me/593999999999?text=${encodeURIComponent(message)}`, '_blank');
@@ -67,10 +91,56 @@ const Products = () => {
 
     return (
         <>
-            <header className="page-header">
-                <div className="container">
-                    <h1>Nuestros Productos</h1>
-                    <p>Calidad superior para cubiertas y acabados</p>
+            {/* NEW HERO SLIDER HEADER (Floating Cards) */}
+            <header className="product-hero-section">
+                <div className="product-hero-bg">
+                    <img src="/images/laminas/laminas-3.JPG" alt="Background" />
+                    <div className="hero-gradient-overlay"></div>
+                </div>
+
+                <div className="container product-hero-content">
+                    {/* Left Side: Floating Product Cards */}
+                    <div className="hero-cards-wrapper">
+                        <div className="hero-product-card animate-on-scroll slide-in-left">
+                            <div className="hero-card-img">
+                                <img src="/images/tejas/tejas-1.JPG" alt="Teja Española" />
+                            </div>
+                            <div className="hero-card-info">
+                                <span>Teja Española PVC</span>
+                                <h4>Clásica y Resistente</h4>
+                                <button className="btn-mini">Ver más</button>
+                            </div>
+                        </div>
+
+                        <div className="hero-product-card animate-on-scroll slide-in-left delay-1">
+                            <div className="hero-card-img">
+                                <img src="/images/wpc/wpc-1.JPG" alt="Paneles WPC" />
+                            </div>
+                            <div className="hero-card-info">
+                                <span>Paneles WPC</span>
+                                <h4>Elegancia Interior</h4>
+                                <button className="btn-mini">Ver más</button>
+                            </div>
+                        </div>
+
+                        <div className="hero-product-card animate-on-scroll slide-in-left delay-2">
+                            <div className="hero-card-img">
+                                <img src="/images/tumbado/tumbado-1.JPG" alt="Tumbado PVC" />
+                            </div>
+                            <div className="hero-card-info">
+                                <span>Tumbado PVC</span>
+                                <h4>Acabados Limpios</h4>
+                                <button className="btn-mini">Ver más</button>
+                            </div>
+                        </div>
+                    </div>
+
+                    {/* Right Side: Main Text */}
+                    <div className="hero-text-wrapper animate-on-scroll">
+                        <h1>TRANSFORMA<br />TU HOGAR</h1>
+                        <p>Descubre nuestra línea exclusiva de acabados arquitectónicos.</p>
+                        <button className="btn-primary">Realizar Pedido</button>
+                    </div>
                 </div>
             </header>
 

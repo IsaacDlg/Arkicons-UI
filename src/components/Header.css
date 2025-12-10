@@ -15,8 +15,9 @@
 .top-bar {
     background-color: var(--accent);
     color: #eee;
-    font-size: 0.85rem;
-    padding: 8px 0;
+    font-size: 1rem;
+    /* Slightly larger base text */
+    padding: 10px 0;
     transition: height 0.3s ease, padding 0.3s ease, opacity 0.3s ease;
 }
 
@@ -29,7 +30,8 @@
 
 .top-bar-content {
     display: flex;
-    justify-content: space-between;
+    justify-content: center;
+    /* Center the remaining social items */
     align-items: center;
 }
 
@@ -46,6 +48,8 @@
     gap: 8px;
     font-weight: 500;
     transition: color 0.3s;
+    font-size: 1.25rem;
+    /* Larger icons */
 }
 
 .contact-items a:hover,
@@ -60,7 +64,10 @@
 
 /* Main Nav */
 .main-nav {
-    padding: 15px 0;
+    padding: 8px 0;
+    /* Balanced breathing room */
+    display: flex;
+    align-items: center;
     transition: padding 0.3s ease;
 }
 
@@ -72,23 +79,51 @@
     display: flex;
     justify-content: space-between;
     align-items: center;
+    gap: 40px;
+    /* Ensure minimum separation */
 }
 
 .brand-logo {
     display: flex;
-    align-items: center;
+    align-items: baseline;
+    /* Align text and icon on baseline */
+    gap: 8px;
+    /* Space between icon and text */
+    text-decoration: none;
+    margin-right: 40px;
+    /* Separation from nav */
 }
 
-.logo-img {
-    height: 40px;
-    /* Adjust based on logo proportions */
+.brand-icon {
+    height: 38px;
+    /* Matches text visual weight */
     width: auto;
-    object-fit: contain;
+    display: block;
+    transform: translateY(4px);
+    /* Micro-adjustment for baseline alignment */
     transition: transform 0.3s ease;
 }
 
-.brand-logo:hover .logo-img {
-    transform: scale(1.05);
+.brand-text {
+    font-family: var(--font-heading);
+    font-weight: 500;
+    /* Medium weight (thinner) */
+    font-size: 2.2rem;
+    /* Large readable text */
+    letter-spacing: -1px;
+    /* Tighter letter spacing */
+    line-height: 1;
+    color: var(--text-dark);
+}
+
+.brand-logo:hover .brand-icon {
+    transform: translateY(4px) scale(1.1);
+    /* Keep baseline adjust + scale */
+}
+
+.brand-logo:hover .brand-text {
+    color: var(--primary);
+    transition: color 0.3s ease;
 }
 
 /* Links */

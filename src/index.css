@@ -984,3 +984,330 @@ ul {
         opacity: 1;
     }
 }
+
+/* === CONTACT PAGE STYLES === */
+.contact-section {
+    padding: 80px 0;
+    background-color: var(--bg-grey);
+}
+
+.contact-wrapper {
+    display: flex;
+    gap: 60px;
+    align-items: flex-start;
+}
+
+.contact-info {
+    flex: 1;
+}
+
+.contact-info .subtitle {
+    display: block;
+    color: var(--primary);
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    margin-bottom: 10px;
+    font-size: 0.9rem;
+}
+
+.contact-info h2 {
+    font-size: 2.5rem;
+    margin-bottom: 20px;
+    color: var(--text-dark);
+}
+
+.contact-info .info-item {
+    display: flex;
+    align-items: flex-start;
+    gap: 20px;
+    margin-bottom: 30px;
+}
+
+.contact-info .info-item i {
+    font-size: 1.5rem;
+    color: var(--primary);
+    margin-top: 5px;
+    min-width: 30px;
+    text-align: center;
+}
+
+.contact-info .info-item h4 {
+    margin: 0 0 5px;
+    font-size: 1.1rem;
+    color: var(--text-dark);
+}
+
+.contact-info .info-item p {
+    margin: 0;
+    color: var(--text-light);
+    font-size: 0.95rem;
+    line-height: 1.6;
+}
+
+.contact-form {
+    flex: 1;
+    background: var(--white);
+    padding: 40px;
+    border-radius: var(--radius);
+    box-shadow: var(--shadow);
+}
+
+.form-group {
+    margin-bottom: 20px;
+}
+
+.form-group label {
+    display: block;
+    margin-bottom: 8px;
+    font-weight: 500;
+    color: var(--text-dark);
+}
+
+.form-group input,
+.form-group textarea {
+    width: 100%;
+    padding: 12px 15px;
+    border: 1px solid #ddd;
+    border-radius: 6px;
+    font-family: inherit;
+    font-size: 1rem;
+    transition: all 0.3s ease;
+    background-color: #FAFAFA;
+}
+
+.form-group input:focus,
+.form-group textarea:focus {
+    border-color: var(--primary);
+    background-color: var(--white);
+    outline: none;
+    box-shadow: 0 0 0 3px rgba(242, 106, 33, 0.1);
+}
+
+.contact-form .btn-primary {
+    width: 100%;
+    padding: 15px;
+    font-size: 1.1rem;
+    margin-top: 10px;
+}
+
+@media (max-width: 968px) {
+    .contact-wrapper {
+        flex-direction: column;
+        gap: 40px;
+    }
+
+    .contact-info h2 {
+        font-size: 2rem;
+    }
+}
+
+/* === SCROLL ANIMATIONS === */
+.slide-in-left {
+    opacity: 0;
+    transform: translateX(-100px);
+    transition: all 0.8s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+    /* Smooth ease-out */
+}
+
+.slide-in-left.fade-in {
+    opacity: 1;
+    transform: translateX(0);
+}
+
+/* Ensure default fade-in works if not existing */
+.animate-on-scroll {
+    opacity: 0;
+    transform: translateY(20px);
+    transition: opacity 0.6s ease-out, transform 0.6s ease-out;
+}
+
+.animate-on-scroll.fade-in {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+/* Override for specific animations to avoid conflict */
+.slide-in-left.animate-on-scroll {
+    transform: translateX(-100px);
+    /* Force left start */
+}
+
+.slide-in-left.animate-on-scroll.fade-in {
+    transform: translateX(0);
+}
+
+/* === NEW PRODUCT HERO (FLOATING CARDS) === */
+.product-hero-section {
+    position: relative;
+    height: 70vh;
+    /* Taller for impact */
+    min-height: 500px;
+    display: flex;
+    align-items: center;
+    overflow: hidden;
+    margin-bottom: 60px;
+    border-bottom: 5px solid var(--primary);
+}
+
+.product-hero-bg {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 0;
+}
+
+.product-hero-bg img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.hero-gradient-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(to right, rgba(0, 0, 0, 0.6) 0%, rgba(255, 255, 255, 0.1) 60%, rgba(255, 255, 255, 0.2) 100%);
+    z-index: 1;
+}
+
+.product-hero-content {
+    position: relative;
+    z-index: 2;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+    flex-wrap: wrap;
+    /* Safety for mobile */
+}
+
+/* Right Side Text */
+.hero-text-wrapper {
+    flex: 1;
+    text-align: right;
+    padding-left: 40px;
+    color: var(--white);
+    text-shadow: 0 2px 10px rgba(0, 0, 0, 0.5);
+}
+
+.hero-text-wrapper h1 {
+    font-size: 4rem;
+    font-weight: 800;
+    line-height: 1;
+    margin-bottom: 20px;
+    color: var(--white);
+    text-transform: uppercase;
+}
+
+.hero-text-wrapper p {
+    font-size: 1.2rem;
+    margin-bottom: 30px;
+    opacity: 0.9;
+}
+
+/* Left Side Cards */
+.hero-cards-wrapper {
+    display: flex;
+    gap: 20px;
+    flex-wrap: wrap;
+    max-width: 600px;
+}
+
+.hero-product-card {
+    background: var(--white);
+    border-radius: var(--radius);
+    padding: 10px;
+    width: 160px;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+    display: flex;
+    flex-direction: column;
+    transition: transform 0.3s ease;
+}
+
+.hero-product-card:hover {
+    transform: translateY(-10px);
+}
+
+.hero-card-img {
+    height: 120px;
+    overflow: hidden;
+    border-radius: 4px;
+    margin-bottom: 10px;
+}
+
+.hero-card-img img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.hero-card-info {
+    text-align: left;
+}
+
+.hero-card-info span {
+    font-size: 0.75rem;
+    color: var(--text-light);
+    display: block;
+    margin-bottom: 4px;
+}
+
+.hero-card-info h4 {
+    font-size: 0.9rem;
+    margin-bottom: 8px;
+    line-height: 1.2;
+    color: var(--text-dark);
+}
+
+.btn-mini {
+    background: var(--primary);
+    color: white;
+    border: none;
+    padding: 5px 10px;
+    border-radius: 4px;
+    font-size: 0.7rem;
+    font-weight: 600;
+    cursor: pointer;
+    width: 100%;
+    transition: background 0.3s;
+}
+
+.btn-mini:hover {
+    background: var(--primary-dark);
+}
+
+/* Mobile Responsiveness */
+@media (max-width: 968px) {
+    .product-hero-section {
+        height: auto;
+        padding: 60px 0;
+    }
+
+    .product-hero-content {
+        flex-direction: column-reverse;
+        gap: 40px;
+    }
+
+    .hero-text-wrapper {
+        text-align: center;
+        padding-left: 0;
+    }
+
+    .hero-text-wrapper h1 {
+        font-size: 2.5rem;
+    }
+
+    .hero-cards-wrapper {
+        justify-content: center;
+    }
+
+    .hero-product-card {
+        width: 140px;
+        /* Slightly smaller on mobile to fit 3 */
+    }
+}

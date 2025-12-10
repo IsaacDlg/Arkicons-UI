@@ -51,6 +51,18 @@ const Home = () => {
         { title: "Edificio Vista Hermosa", img: "/images/project-3.jpg", category: "Tejados Premium" },
     ];
 
+    // Dynamic Years of Experience Calculation
+    const calculateExperience = () => {
+        const foundingDate = new Date('2023-07-16');
+        const now = new Date();
+        const diffInMs = now - foundingDate;
+        const yearsActive = Math.floor(diffInMs / (1000 * 60 * 60 * 24 * 365.25));
+        const priorExperience = 3; // Base experience before founding to total 5 currently
+        return priorExperience + yearsActive;
+    };
+
+    const yearsOfExperience = calculateExperience();
+
     return (
         <>
             {/* Hero Carousel */}
@@ -65,11 +77,11 @@ const Home = () => {
                 <div className="container">
                     <div className="stats-grid animate-on-scroll">
                         <div className="stat-item">
-                            <StatCounter end={15} suffix="+" />
+                            <StatCounter end={yearsOfExperience} suffix="+" />
                             <p>Años de Experiencia</p>
                         </div>
                         <div className="stat-item">
-                            <StatCounter end={500} suffix="+" />
+                            <StatCounter end={100} suffix="+" />
                             <p>Proyectos Ejecutados</p>
                         </div>
                         <div className="stat-item">
@@ -90,21 +102,21 @@ const Home = () => {
                     </div>
 
                     <div className="features-grid">
-                        <div className="feature-card animate-on-scroll">
+                        <div className="feature-card animate-on-scroll slide-in-left">
                             <div className="icon-box">
                                 <i className="fas fa-globe-europe"></i>
                             </div>
                             <h3>Calidad Europea</h3>
                             <p>Importamos directamente desde las mejores canteras y fábricas de España, asegurando durabilidad y estilo inigualable.</p>
                         </div>
-                        <div className="feature-card animate-on-scroll delay-1">
+                        <div className="feature-card animate-on-scroll slide-in-left delay-1">
                             <div className="icon-box">
                                 <i className="fas fa-drafting-compass"></i>
                             </div>
                             <h3>Asesoría Técnica</h3>
                             <p>Nuestro equipo de arquitectos e ingenieros le guía para elegir la mejor solución para su clima y diseño.</p>
                         </div>
-                        <div className="feature-card animate-on-scroll delay-2">
+                        <div className="feature-card animate-on-scroll slide-in-left delay-2">
                             <div className="icon-box">
                                 <i className="fas fa-truck-loading"></i>
                             </div>

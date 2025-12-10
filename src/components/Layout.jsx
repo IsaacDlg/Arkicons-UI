@@ -18,9 +18,9 @@ const Layout = ({ children }) => {
                         <p>Importadores de calidad.</p>
                     </div>
                     <div className="footer-links">
-                        <a href="#"><i className="fab fa-facebook"></i></a>
-                        <a href="#"><i className="fab fa-instagram"></i></a>
-                        <a href="#"><i className="fab fa-whatsapp"></i></a>
+                        <a href="https://www.facebook.com/share/1BbufgS9nH/" target="_blank" rel="noopener noreferrer"><i className="fab fa-facebook-f"></i></a>
+                        <a href="https://www.instagram.com/arkicons.ec?igsh=czc0amdqcTc0MnB2" target="_blank" rel="noopener noreferrer"><i className="fab fa-instagram"></i></a>
+                        <a href="https://www.tiktok.com/@arkicons.ec?_r=1&_t=ZM-927Eou6akqe" target="_blank" rel="noopener noreferrer"><i className="fab fa-tiktok"></i></a>
                     </div>
                     <div className="footer-copyright">
                         <p>&copy; 2025 Arkicons. Todos los derechos reservados.</p>

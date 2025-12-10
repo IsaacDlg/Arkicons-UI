@@ -21,22 +21,29 @@ const Contact = () => {
                             <div className="info-item">
                                 <i className="fas fa-map-marker-alt"></i>
                                 <div>
-                                    <h4>Ubicación</h4>
-                                    <p>Quito, Ecuador (Dirección Exacta Pendiente)</p>
+                                    <h4>Matriz</h4>
+                                    <p>Av. de los Shyris y Calle Florida<br />Sangolquí, Ecuador</p>
+                                </div>
+                            </div>
+                            <div className="info-item">
+                                <i className="fas fa-map-marker-alt"></i>
+                                <div>
+                                    <h4>Sucursal</h4>
+                                    <p>Capitán Geovani Calles y Ricardo Calderón<br />Marianitas – Calderón</p>
                                 </div>
                             </div>
                             <div className="info-item">
                                 <i className="fas fa-phone"></i>
                                 <div>
-                                    <h4>Teléfono</h4>
-                                    <p>+593 99 999 9999</p>
+                                    <h4>Teléfono / WhatsApp</h4>
+                                    <p><a href="https://wa.me/593987676761" target="_blank" rel="noopener noreferrer">098 767 6761</a></p>
                                 </div>
                             </div>
                             <div className="info-item">
                                 <i className="fas fa-envelope"></i>
                                 <div>
                                     <h4>Email</h4>
-                                    <p>info@arkicons.com</p>
+                                    <p>arkiconsec@gmail.com</p>
                                 </div>
                             </div>
                         </div>

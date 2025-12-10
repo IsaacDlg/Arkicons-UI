@@ -35,14 +35,11 @@ const Header = () => {
             {/* Top Bar - Contact Info */}
             <div className="top-bar">
                 <div className="container top-bar-content">
-                    <div className="contact-items">
-                        <a href="tel:+593987676761"><i className="fas fa-phone-alt"></i> 098 767 6761</a>
-                        <a href="mailto:arkiconsec@gmail.com"><i className="fas fa-envelope"></i> arkiconsec@gmail.com</a>
-                    </div>
+
                     <div className="social-items">
-                        <a href="#"><i className="fab fa-facebook-f"></i></a>
-                        <a href="#"><i className="fab fa-instagram"></i></a>
-                        <a href="#"><i className="fab fa-whatsapp"></i></a>
+                        <a href="https://www.facebook.com/share/1BbufgS9nH/" target="_blank" rel="noopener noreferrer"><i className="fab fa-facebook-f"></i></a>
+                        <a href="https://www.instagram.com/arkicons.ec?igsh=czc0amdqcTc0MnB2" target="_blank" rel="noopener noreferrer"><i className="fab fa-instagram"></i></a>
+                        <a href="https://www.tiktok.com/@arkicons.ec?_r=1&_t=ZM-927Eou6akqe" target="_blank" rel="noopener noreferrer"><i className="fab fa-tiktok"></i></a>
                     </div>
                 </div>
             </div>
@@ -52,7 +49,8 @@ const Header = () => {
                 <div className="container nav-content">
                     {/* Logo */}
                     <Link to="/" className="brand-logo">
-                        <img src="/images/logo.png" alt="Arkicons" className="logo-img" />
+                        <img src="/images/logos/logo_pestana.png" alt="Arkicons" className="brand-icon" />
+                        <span className="brand-text">ARKICONS</span>
                     </Link>
 
                     {/* Mobile Toggle */}
