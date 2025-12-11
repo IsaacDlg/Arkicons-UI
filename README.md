@@ -39,4 +39,4 @@ npm run dev
 ```
 
 ---
-*Developed by Isaac Delgado*
+*Developed by IsaacDlg*
