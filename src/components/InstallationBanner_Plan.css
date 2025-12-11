@@ -1,0 +1,92 @@
+/* InstallationBanner.css */
+.installation-banner {
+    display: flex;
+    flex-wrap: wrap;
+    width: 90%;
+    /* Reduce width slightly so pop-out doesn't cause scrollbar */
+    margin: 80px auto 40px auto;
+    /* Center it */
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+    border-radius: 15px;
+    position: relative;
+    overflow: visible !important;
+    /* Force overflow */
+}
+
+.banner-side {
+    flex: 1;
+    padding: 40px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    min-width: 300px;
+    position: relative;
+}
+
+/* Left Side - Installation (Blue/Teal) */
+.banner-left {
+    background: linear-gradient(135deg, #007ea7 0%, #003459 100%);
+    color: white;
+    justify-content: flex-end;
+    /* Align text to Right */
+    padding-left: 240px;
+    /* HUGE PADDING to clear the worker */
+    border-top-left-radius: 15px;
+    border-bottom-left-radius: 15px;
+}
+
+.banner-content {
+    display: flex;
+    flex-direction: column;
+    z-index: 2;
+    position: relative;
+    text-align: left;
+    width: 100%;
+}
+
+.banner-worker-img {
+    position: absolute;
+    left: -70px;
+    /* POP OUT FAR LEFT */
+    bottom: -15px;
+    /* Sit slightly below */
+    height: 145%;
+    /* Very tall */
+    max-height: 400px;
+    object-fit: contain;
+    z-index: 100;
+    /* High Z-Index */
+    filter: drop-shadow(10px 10px 20px rgba(0, 0, 0, 0.4));
+}
+
+/* ... (Keep existing right side styles) ... */
+
+/* Mobile Responsiveness */
+@media (max-width: 992px) {
+    .installation-banner {
+        width: 100%;
+        margin-top: 60px;
+        overflow: hidden !important;
+        /* Contain on mobile */
+    }
+
+    .banner-left {
+        padding-left: 40px;
+        justify-content: center;
+        text-align: center;
+    }
+
+    .banner-worker-img {
+        /* Mobile: Put him behind text or remove pop-out */
+        left: -30px;
+        height: 200px;
+        bottom: 0;
+        opacity: 0.3;
+        /* Fade him out */
+        z-index: 0;
+    }
+
+    .banner-content {
+        z-index: 2;
+    }
+}

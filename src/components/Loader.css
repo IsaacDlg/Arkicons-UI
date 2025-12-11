@@ -1,87 +1,82 @@
 /* Loader.css */
-/* Full Page Loader Container */
 .page-loader {
     position: fixed;
     inset: 0;
     display: grid;
     place-items: center;
-    background: rgba(255, 255, 255, 0.95);
-    backdrop-filter: blur(5px);
+    background: rgba(255, 255, 255, 1);
+    /* White background per screenshot code */
     z-index: 9999;
-    transition: opacity 0.5s ease, visibility 0.5s ease;
+    transition: opacity 250ms ease;
+    opacity: 1;
 }
 
 .page-loader.hidden {
     opacity: 0;
-    visibility: hidden;
     pointer-events: none;
 }
 
-/* SVG Container - Bouncing Animation */
-.ark-loader {
-    width: 100px;
-    /* Adjust size as needed */
-    height: 100px;
-    transform-origin: 50% 50%;
-    animation: loader-bounce 2000ms cubic-bezier(0.2, 0.8, 0.2, 1) infinite;
+.loader-wrap {
+    width: 72px;
+    height: 72px;
+    display: grid;
+    place-items: center;
 }
 
-/* The Drawing Stroke Path */
-.ark-loader-stroke {
-    fill: none;
-    stroke: var(--primary);
-    /* Uses your brand orange */
-    stroke-width: 4;
-    /* Adjust thickness */
-    stroke-linecap: round;
-    stroke-linejoin: round;
+.loader-logo {
+    width: 100%;
+    height: auto;
+    /* transform-origin: 50% 50%; */
+    filter: drop-shadow(0 10px 14px rgba(0, 0, 0, 0.15));
 
-    /* The Drawing Magic */
-    stroke-dasharray: 1200;
-    /* Must be larger than path length */
-    stroke-dashoffset: 1200;
-    animation: loader-draw 2500ms ease-in-out infinite;
+    /* Revelado vertical tipo "se construye" */
+    clip-path: inset(100% 0 0 0);
+
+    animation:
+        ark-bounce 2000ms cubic-bezier(0.28, 0.84, 0.42, 1) infinite,
+        ark-reveal 1500ms ease-in-out infinite;
 }
 
-/* Keyframes */
-@keyframes loader-draw {
+/* Salto */
+@keyframes ark-bounce {
     0% {
-        stroke-dashoffset: 1200;
-        opacity: 0;
+        transform: translateY(0) scale(1);
+        opacity: 0.8;
     }
 
-    10% {
+    50% {
+        transform: translateY(-15px) scale(1.05);
         opacity: 1;
     }
 
-    50% {
-        stroke-dashoffset: 0;
-    }
-
-    100% {
-        stroke-dashoffset: -1200;
-        opacity: 0;
-    }
-}
-
-@keyframes loader-bounce {
-
-    0%,
     100% {
         transform: translateY(0) scale(1);
-    }
-
-    50% {
-        transform: translateY(-10px) scale(1.05);
-        /* Gentle bounce */
+        opacity: 0.8;
     }
 }
 
-/* Reduce motion preference */
-@media (prefers-reduced-motion: reduce) {
+/* "Se genera" (wipe) */
+@keyframes ark-reveal {
+    0% {
+        clip-path: inset(100% 0 0 0);
+    }
 
-    .ark-loader,
-    .ark-loader-stroke {
+    40% {
+        clip-path: inset(0 0 0 0);
+    }
+
+    70% {
+        clip-path: inset(0 0 0 0);
+    }
+
+    100% {
+        clip-path: inset(100% 0 0 0);
+    }
+}
+
+@media (prefers-reduced-motion: reduce) {
+    .loader-logo {
         animation: none;
+        clip-path: inset(0 0 0 0);
     }
 }

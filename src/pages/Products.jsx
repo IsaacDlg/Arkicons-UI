@@ -1,4 +1,7 @@
+
 import HeroCarousel from '../components/HeroCarousel';
+import BenefitBar from '../components/BenefitBar';
+import InstallationBanner from '../components/InstallationBanner';
 import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
 
@@ -86,14 +89,14 @@ const Products = () => {
     }, [selectedCategory]); // Re-run when view changes
 
     const handleQuote = (imageSrc) => {
-        const message = `Hola, estoy interesado en cotizar el producto que vi en su galería: ${window.location.origin}${imageSrc}`;
+        const message = `Hola, estoy interesado en cotizar el producto que vi en su galería: ${window.location.origin}${imageSrc} `;
         window.open(`https://wa.me/593999999999?text=${encodeURIComponent(message)}`, '_blank');
     };
 
     return (
         <>
             {/* COMBINED HERO CAROUSEL */}
-            <div style={{ marginBottom: '60px' }}>
+            <div style={{ marginBottom: '0' }}>
                 <HeroCarousel
                     height="600px"
                     slides={[
@@ -153,24 +156,31 @@ const Products = () => {
                             src: "/images/wpc/wpc-1.JPG",
                             title: "¡PRODUCTOS EN DESCUENTOS!",
                             subtitle: "Aprovecha nuestras ofertas especiales de temporada. Calidad premium a precios increíbles.",
-                            cta: "Cotiza Ya"
+                            cta: "Cotiza Ya",
+                            link: "/contact"
                         },
                         {
                             src: "/images/tejas/tejas-2.JPG",
                             title: "OFERTAS EN TEJAS",
                             subtitle: "Renueva tu cubierta con nuestra tecnología duradera y elegante.",
-                            cta: "Ver Ofertas"
+                            cta: "Ver Ofertas",
+                            link: "/contact"
                         },
                         {
                             src: "/images/laminas/laminas-3.JPG",
                             title: "REVESTIMIENTOS UV",
                             subtitle: "Acabados de mármol a una fracción del costo. Instalación rápida.",
-                            cta: "Consultar Precio"
+                            cta: "Consultar Precio",
+                            link: "/contact"
                         }
                     ]}
                 />
             </div>
 
+            {/* BENEFIT BAR */}
+            <BenefitBar />
+
+            {/* PRODUCT CATALOG */}
             <section className="section products-section">
                 <div className="container">
 
@@ -188,36 +198,48 @@ const Products = () => {
                     )}
 
                     {/* MAIN GALLERY VIEW */}
+                    {/* MAIN GALLERY VIEW */}
                     {!selectedCategory ? (
-                        <div className="products-grid">
-                            {categories.map((cat) => (
-                                <article
-                                    key={cat.id}
-                                    className="product-card animate-on-scroll"
-                                    onClick={() => setSelectedCategory(cat)}
-                                    style={{ cursor: 'pointer' }}
-                                >
-                                    <div className="product-image">
-                                        <img src={cat.cover} alt={cat.title} />
-                                        <div className="product-overlay">
-                                            <h3>Ver Galería</h3>
+                        <>
+                            <div className="products-grid">
+                                {categories.map((cat) => (
+                                    <article
+                                        key={cat.id}
+                                        className="product-card animate-on-scroll"
+                                        onClick={() => setSelectedCategory(cat)}
+                                        style={{ cursor: 'pointer' }}
+                                    >
+                                        <div className="product-image">
+                                            <img src={cat.cover} alt={cat.title} />
+                                            <div className="product-overlay">
+                                                <h3>Ver Galería</h3>
+                                            </div>
                                         </div>
-                                    </div>
-                                    <div className="product-info text-center">
-                                        <h3 style={{ fontSize: '1.5rem', marginBottom: '5px' }}>{cat.title}</h3>
-                                        <p style={{ color: '#666' }}>{cat.subtitle}</p>
-                                        <span className="btn-primary" style={{ marginTop: '15px', fontSize: '0.8rem', padding: '10px 20px' }}>
-                                            Ver {cat.images.length} Fotos
-                                        </span>
-                                    </div>
-                                </article>
-                            ))}
-                        </div>
+                                        <div className="product-info text-center">
+                                            <h3 style={{ fontSize: '1.5rem', marginBottom: '5px' }}>{cat.title}</h3>
+                                            <p style={{ color: '#666' }}>{cat.subtitle}</p>
+                                            <span className="btn-primary" style={{ marginTop: '15px', fontSize: '0.8rem', padding: '10px 20px' }}>
+                                                Ver {cat.images.length} Fotos
+                                            </span>
+                                        </div>
+                                    </article>
+                                ))}
+                            </div>
+
+                            {/* INSTALLATION BANNER */}
+                            <InstallationBanner />
+                        </>
                     ) : (
                         /* DETAIL VIEW (THE GRID) */
                         <div style={{ animation: 'fadeIn 0.5s ease' }}>
                             <div className="section-header text-center">
                                 <span className="subtitle">Galería de Productos</span>
+                                <button
+                                    onClick={() => setSelectedCategory(null)}
+                                    style={{ background: 'none', border: 'none', color: '#888', cursor: 'pointer', marginBottom: '10px', display: 'block', margin: '0 auto' }}
+                                >
+                                    <i className="fas fa-arrow-left"></i> Volver al Catálogo
+                                </button>
                                 <h2>{selectedCategory.title}</h2>
                                 <div className="separator"></div>
                             </div>

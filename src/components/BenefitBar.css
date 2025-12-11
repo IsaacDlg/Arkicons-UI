@@ -1,0 +1,70 @@
+/* BenefitBar.css */
+.benefit-bar {
+    background-color: var(--primary);
+    /* Arkicons Orange */
+    color: var(--white);
+    padding: 30px 0;
+    position: relative;
+    z-index: 10;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+}
+
+.benefit-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 30px;
+    align-items: center;
+    text-align: center;
+}
+
+.benefit-item {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 15px;
+    padding: 10px;
+    border-right: 1px solid rgba(255, 255, 255, 0.2);
+}
+
+.benefit-item:last-child {
+    border-right: none;
+}
+
+.benefit-icon {
+    font-size: 2.5rem;
+    color: var(--white);
+    opacity: 0.9;
+}
+
+.benefit-text {
+    text-align: left;
+}
+
+.benefit-text h4 {
+    color: var(--white);
+    font-size: 1rem;
+    margin-bottom: 2px;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+}
+
+.benefit-text p {
+    color: rgba(255, 255, 255, 0.8);
+    font-size: 0.8rem;
+    margin: 0;
+    font-weight: 500;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+    .benefit-item {
+        border-right: none;
+        border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+        padding-bottom: 20px;
+    }
+
+    .benefit-item:last-child {
+        border-bottom: none;
+        padding-bottom: 0;
+    }
+}

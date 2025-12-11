@@ -6,17 +6,20 @@ const images = [
     {
         src: "/images/laminas/laminas-3.JPG",
         title: "TRANSFORMA TU HOGAR",
-        subtitle: "Descubre nuestra línea exclusiva de acabados arquitectónicos."
+        subtitle: "Descubre nuestra línea exclusiva de acabados arquitectónicos.",
+        link: "/products"
     },
     {
         src: "/images/tejas/tejas-1.JPG",
         title: "TEJA ESPAÑOLA PVC",
-        subtitle: "Durabilidad y estética clásica sin mantenimiento."
+        subtitle: "Durabilidad y estética clásica sin mantenimiento.",
+        link: "/products"
     },
     {
         src: "/images/wpc/wpc-1.JPG",
         title: "PANELES WPC",
-        subtitle: "Elegancia y calidez para tus espacios interiores."
+        subtitle: "Elegancia y calidez para tus espacios interiores.",
+        link: "/products"
     },
     {
         type: 'split',
@@ -131,7 +134,7 @@ const HeroCarousel = ({ slides = images, height = '85vh' }) => {
                             <h1 className={index === currentIndex ? 'fade-in' : ''}>{slide.title}</h1>
                             <p className={index === currentIndex ? 'fade-in delay-1' : ''}>{slide.subtitle}</p>
                             <div className={`hero-btns ${index === currentIndex ? 'fade-in delay-2' : ''}`}>
-                                <Link to="/contact" className="btn-primary">{slide.cta || 'Explorar Catálogo'}</Link>
+                                <Link to={slide.link || '/products'} className="btn-primary">{slide.cta || 'Explorar Catálogo'}</Link>
                                 {slide.cta2 && <Link to="/contact" className="btn-secondary">{slide.cta2}</Link>}
                             </div>
                         </div>

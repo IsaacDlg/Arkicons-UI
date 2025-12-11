@@ -13,7 +13,8 @@
 
 /* Top Bar */
 .top-bar {
-    background-color: var(--accent);
+    background-color: #000000;
+    /* Pure Black for premium look */
     color: #eee;
     font-size: 1rem;
     /* Slightly larger base text */
