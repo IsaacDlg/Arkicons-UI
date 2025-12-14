@@ -115,9 +115,58 @@
     color: #888;
 }
 
-/* Mobile Disable */
+/* Mobile Adaptation */
 @media (max-width: 968px) {
     .mega-menu-container {
+        position: static;
+        width: 100%;
+        transform: none;
+        box-shadow: none;
+        border-top: none;
         display: none;
+        /* Hidden by default, toggled by JS/CSS logic usually */
+        flex-direction: column;
+        padding: 0;
+        background: #f4f4f4;
+        max-height: 0;
+        overflow: hidden;
+        transition: max-height 0.3s ease;
+    }
+
+    /* Verify if parent hover works on mobile or if we need a class */
+    .nav-item-products:hover .mega-menu-container,
+    .nav-item-products:active .mega-menu-container,
+    .nav-item-products:focus-within .mega-menu-container {
+        display: flex;
+        visibility: visible;
+        opacity: 1;
+        max-height: 500px;
+        /* Arbitrary large height */
+        overflow-y: auto;
+    }
+
+    .mega-menu-sidebar {
+        width: 100%;
+        border-right: none;
+        display: flex;
+        overflow-x: auto;
+        padding: 10px 0;
+        background: white;
+        border-bottom: 1px solid #ddd;
+    }
+
+    .menu-category {
+        flex: 0 0 auto;
+        padding: 10px 15px;
+        font-size: 0.9rem;
+    }
+
+    .mega-menu-content {
+        padding: 15px;
+    }
+
+    .subcategory-grid {
+        grid-template-columns: 1fr;
+        gap: 10px;
     }
 }
