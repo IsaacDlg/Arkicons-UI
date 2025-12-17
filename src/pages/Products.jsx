@@ -2,6 +2,7 @@
 import HeroCarousel from '../components/HeroCarousel';
 import BenefitBar from '../components/BenefitBar';
 import InstallationBanner from '../components/InstallationBanner';
+import DiscountBanner from '../components/DiscountBanner';
 import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
 
@@ -179,6 +180,11 @@ const Products = () => {
 
             {/* BENEFIT BAR */}
             <BenefitBar />
+
+            {/* DISCOUNT BANNER */}
+            <div style={{ marginTop: '20px' }}>
+                <DiscountBanner />
+            </div>
 
             {/* PRODUCT CATALOG */}
             <section className="section products-section">
