@@ -187,7 +187,7 @@ const Products = () => {
             </div>
 
             {/* PRODUCT CATALOG */}
-            <section className="section products-section">
+            <section className="section products-section" style={{ paddingTop: '40px' }}>
                 <div className="container">
 
                     {/* BREADCRUMB / NAVIGATION */}
@@ -211,7 +211,7 @@ const Products = () => {
                                 {categories.map((cat) => (
                                     <article
                                         key={cat.id}
-                                        className="product-card animate-on-scroll"
+                                        className="product-card"
                                         onClick={() => setSelectedCategory(cat)}
                                         style={{ cursor: 'pointer' }}
                                     >
