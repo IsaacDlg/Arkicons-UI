@@ -182,7 +182,7 @@ const Products = () => {
             <BenefitBar />
 
             {/* DISCOUNT BANNER */}
-            <div style={{ marginTop: '20px' }}>
+            <div style={{ marginTop: '0' }}>
                 <DiscountBanner />
             </div>
 
