@@ -28,9 +28,11 @@
 .banner-worker-img {
     position: absolute;
     bottom: 0;
-    left: -20px;
+    right: -40px;
+    /* Moved to right */
+    left: auto;
+    /* Reset left */
     height: 115%;
-    /* Pop out top */
     max-height: 500px;
     width: auto;
     object-fit: contain;
@@ -42,9 +44,9 @@
 /* 2. Speech Bubble */
 .speech-bubble {
     position: absolute;
-    top: 40px;
-    left: 200px;
-    /* To the right of the worker */
+    top: 50px;
+    left: 40px;
+    /* Anchor left */
     background: white;
     color: #003459;
     padding: 15px 35px;
@@ -75,9 +77,9 @@
 /* 3. "Si" Subtext */
 .worker-subtext {
     position: absolute;
-    top: 160px;
-    /* Below bubble */
-    left: 210px;
+    top: 170px;
+    left: 50px;
+    /* Align with bubble */
     z-index: 20;
     color: white;
     text-align: left;
@@ -92,7 +94,7 @@
 
 .subtext-light {
     display: block;
-    font-size: 1.1rem;
+    font-size: 1.2rem;
     font-weight: 500;
     opacity: 0.9;
     margin-top: 10px;
@@ -102,7 +104,6 @@
 
 .thumbs-icon {
     display: none;
-    /* Removed as per visual clean-up */
 }
 
 /* === Right Side (Yellow) === */
@@ -193,6 +194,8 @@
     .banner-worker-img {
         height: 350px;
         left: 50%;
+        right: auto;
+        /* Reset right from desktop */
         transform: translateX(-50%);
         bottom: 0px;
     }
