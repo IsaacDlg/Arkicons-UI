@@ -3,6 +3,7 @@ import { Link } from 'react-router-dom';
 import ScrollList from '../components/ScrollList';
 import StatCounter from '../components/StatCounter';
 import HeroCarousel from '../components/HeroCarousel';
+import DiscountBanner from '../components/DiscountBanner'; // Add import
 
 const Home = () => {
     useEffect(() => {
@@ -135,6 +136,9 @@ const Home = () => {
                         <h2>Materiales de Vanguardia</h2>
                         <div className="separator"></div>
                     </div>
+
+
+                    <DiscountBanner />
 
                     {/* Collection Toggle Buttons */}
                     <div style={{ display: 'flex', justifyContent: 'center', gap: '20px', marginBottom: '30px' }}>

@@ -1,0 +1,46 @@
+.discount-banner-container {
+    background: linear-gradient(90deg, #FCA311 0%, #E85D04 100%);
+    color: white;
+    overflow: hidden;
+    padding: 12px 0;
+    position: relative;
+    width: 100%;
+    margin-bottom: 30px;
+    border-radius: 8px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+.discount-marquee {
+    display: flex;
+    white-space: nowrap;
+    overflow: hidden;
+}
+
+.marquee-content {
+    display: flex;
+    animation: scroll 20s linear infinite;
+    min-width: 100%;
+}
+
+.marquee-content span {
+    padding: 0 2rem;
+    font-weight: 800;
+    font-size: 1.1rem;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+}
+
+@keyframes scroll {
+    from {
+        transform: translateX(0);
+    }
+
+    to {
+        transform: translateX(-100%);
+    }
+}
+
+/* Pause on hover for readability */
+.discount-banner-container:hover .marquee-content {
+    animation-play-state: paused;
+}
