@@ -27,7 +27,7 @@ const Footer = () => {
                     {/* Quick Links */}
                     <div className="footer-col">
                         <h4>Enlaces Rápidos</h4>
-                        <ul className="footer-links">
+                        <ul className="site-footer-links">
                             <li><Link to="/">Inicio</Link></li>
                             <li><Link to="/about">Nosotros</Link></li>
                             <li><Link to="/products">Productos</Link></li>
@@ -38,7 +38,7 @@ const Footer = () => {
                     {/* Products Links */}
                     <div className="footer-col">
                         <h4>Productos</h4>
-                        <ul className="footer-links">
+                        <ul className="site-footer-links">
                             <li><Link to="/products">Porcelanatos</Link></li>
                             <li><Link to="/products">Cerámicas</Link></li>
                             <li><Link to="/products">Pisos Flotantes</Link></li>
